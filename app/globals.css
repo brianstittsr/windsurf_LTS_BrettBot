@@ -31,3 +31,131 @@ body {
 .hero-pattern {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+
+/* Hide AnythingLLM branding - Aggressive removal */
+[class*="anythingllm"] [class*="powered"],
+[class*="anythingllm"] [class*="branding"],
+[class*="anythingllm"] [class*="logo"],
+[class*="anythingllm"] a[href*="anythingllm"],
+[class*="anythingllm"] img[src*="anythingllm"],
+[class*="anythingllm"] img[alt*="anythingllm"],
+[class*="anythingllm"] div[class*="footer"],
+[class*="anythingllm"] div[class*="attribution"],
+[class*="anythingllm"] span:contains("Powered by"),
+[class*="anythingllm"] span:contains("AnythingLLM"),
+[class*="anythingllm"] a:contains("AnythingLLM"),
+iframe[src*="anythingllm"] + div,
+iframe[src*="anythingllm"] ~ div,
+div[data-embed-id] [class*="powered"],
+div[data-embed-id] [class*="branding"],
+div[data-embed-id] [class*="logo"],
+div[data-embed-id] img[src*="anythingllm"],
+div[data-embed-id] a[href*="anythingllm"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+  z-index: -1 !important;
+}
+
+/* Custom chat widget styling */
+.anythingllm-chat-widget {
+  --primary-color: #16a34a;
+  --brand-name: "LTS Solutions";
+}
+
+.anythingllm-chat-widget .chat-header {
+  background-color: var(--primary-color) !important;
+}
+
+.anythingllm-chat-widget .brand-logo {
+  content: url('/lts-logo.png') !important;
+}
+
+/* Universal button targeting for chat widgets */
+button[style*="position: fixed"],
+button[style*="position:fixed"],
+div > button[style*="bottom"],
+div > button[style*="right"] {
+  background-color: #16a34a !important;
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  border: 2px solid #16a34a !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3) !important;
+}
+
+/* Target the floating chat button - more specific selectors */
+div[id*="anythingllm"] button,
+div[class*="anythingllm"] button,
+#anythingllm-chat-widget button,
+.anythingllm-chat-widget button,
+[data-embed-id="977e9fe6-1440-4d39-a8cb-38a4d8bb9dcb"] button,
+button[style*="position: fixed"],
+button[style*="bottom:"],
+button[style*="right:"] {
+  background-color: #16a34a !important;
+  background: #16a34a !important;
+  border-color: #16a34a !important;
+  border: 2px solid #16a34a !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3) !important;
+}
+
+/* Hide all SVG icons in the chat button */
+div[id*="anythingllm"] button svg,
+div[class*="anythingllm"] button svg,
+#anythingllm-chat-widget button svg,
+.anythingllm-chat-widget button svg,
+[data-embed-id="977e9fe6-1440-4d39-a8cb-38a4d8bb9dcb"] button svg,
+button[style*="position: fixed"] svg,
+button[style*="bottom:"] svg,
+button[style*="right:"] svg {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Add chat bubble icon */
+div[id*="anythingllm"] button::before,
+div[class*="anythingllm"] button::before,
+#anythingllm-chat-widget button::before,
+.anythingllm-chat-widget button::before,
+[data-embed-id="977e9fe6-1440-4d39-a8cb-38a4d8bb9dcb"] button::before,
+button[style*="position: fixed"]::before,
+button[style*="bottom:"]::before,
+button[style*="right:"]::before {
+  content: "💬" !important;
+  font-size: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 10 !important;
+}
+
+/* Additional aggressive branding removal */
+
+/* Hide elements with specific text content */
+*:has-text("Powered by AnythingLLM"),
+*:has-text("AnythingLLM"),
+*:has-text("Powered by") {
+  display: none !important;
+}
+
+/* Target common footer/branding locations */
+div:last-child:contains("Powered"),
+div:last-child:contains("AnythingLLM"),
+footer,
+.footer,
+[role="contentinfo"] {
+  display: none !important;
+}

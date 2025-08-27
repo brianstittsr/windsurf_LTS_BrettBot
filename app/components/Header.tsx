@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import LTSLogo from './LTSLogo'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -10,12 +11,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-lts-blue">
-              LTS Solutions
-            </div>
-            <div className="ml-2 text-sm text-gray-600">
-              BrettBot Assistant
-            </div>
+            <img 
+              src="/lean_transition_solutions_logo.jpg" 
+              alt="Lean Transition Solutions" 
+              className="h-8 w-auto mr-2"
+            />
+            <span className="text-xl font-bold text-gray-800">LTS Solutions</span>
+          </div>
+          <div className="ml-2 text-sm text-gray-600">
+            BrettBot Assistant
           </div>
           
           <nav className="hidden md:flex space-x-8">
