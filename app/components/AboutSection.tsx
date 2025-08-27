@@ -8,7 +8,7 @@ export default function AboutSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-lts-dark mb-4">
             About Brett & LTS Solutions
           </h2>
-          <p className="text-xl text-lts-gray max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Leading the Lean Industry 4.0 Revolution - driving Global Enterprises towards 
             Smart, Sustainable Transformation through Innovation.
           </p>
@@ -26,7 +26,7 @@ export default function AboutSection() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <p className="text-lts-gray">
+                <p className="text-gray-700">
                   <strong>Lean Industry 4.0 Expertise:</strong> Brett combines traditional lean manufacturing 
                   principles with cutting-edge Industry 4.0 technologies for optimal results.
                 </p>
@@ -38,7 +38,7 @@ export default function AboutSection() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <p className="text-lts-gray">
+                <p className="text-gray-700">
                   <strong>Comprehensive Solutions:</strong> Access to 15+ specialized LTS products 
                   covering maintenance, quality, safety, and production planning.
                 </p>
@@ -50,7 +50,7 @@ export default function AboutSection() {
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <p className="text-lts-gray">
+                <p className="text-gray-700">
                   <strong>Global Experience:</strong> Proven track record helping organizations 
                   worldwide achieve operational excellence and continuous improvement.
                 </p>
@@ -62,7 +62,7 @@ export default function AboutSection() {
             <h4 className="text-xl font-bold text-lts-dark mb-4">
               What Brett Can Help You With:
             </h4>
-            <ul className="space-y-3 text-lts-gray">
+            <ul className="space-y-3 text-gray-700">
               <li>• Manufacturing process optimization</li>
               <li>• Lean assessment and implementation</li>
               <li>• Quality management systems</li>

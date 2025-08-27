@@ -47,7 +47,7 @@ export default function ProductsSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-lts-dark mb-4">
             LTS Product Portfolio
           </h2>
-          <p className="text-xl text-lts-gray max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive suite of manufacturing solutions designed to optimize your operations 
             and drive continuous improvement across all aspects of your business.
           </p>
@@ -58,10 +58,10 @@ export default function ProductsSection() {
             <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4">{product.icon}</div>
               <h3 className="text-xl font-bold text-lts-dark mb-2">{product.name}</h3>
-              <p className="text-lts-gray mb-4">{product.description}</p>
+              <p className="text-gray-700 mb-4">{product.description}</p>
               <ul className="space-y-2">
                 {product.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-lts-gray">
+                  <li key={idx} className="flex items-center text-sm text-gray-600">
                     <div className="w-2 h-2 bg-lts-blue rounded-full mr-3"></div>
                     {feature}
                   </li>
@@ -78,7 +78,7 @@ export default function ProductsSection() {
           <h3 className="text-2xl font-bold text-lts-dark mb-4">
             Need Help Choosing the Right Products?
           </h3>
-          <p className="text-lts-gray mb-6 max-w-2xl mx-auto">
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Brett can analyze your specific manufacturing challenges and recommend the optimal 
             combination of LTS products to maximize efficiency and ROI.
           </p>

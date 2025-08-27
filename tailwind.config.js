@@ -10,8 +10,8 @@ module.exports = {
       colors: {
         'lts-blue': '#1e40af',
         'lts-light-blue': '#3b82f6',
-        'lts-dark': '#1f2937',
-        'lts-gray': '#6b7280',
+        'lts-dark': '#111827',
+        'lts-gray': '#4b5563',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

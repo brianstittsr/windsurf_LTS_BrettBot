@@ -13,22 +13,22 @@ export default function Header() {
             <div className="text-2xl font-bold text-lts-blue">
               LTS Solutions
             </div>
-            <div className="ml-2 text-sm text-lts-gray">
+            <div className="ml-2 text-sm text-gray-600">
               BrettBot Assistant
             </div>
           </div>
           
           <nav className="hidden md:flex space-x-8">
-            <a href="#about" className="text-lts-gray hover:text-lts-blue transition-colors">
+            <a href="#about" className="text-gray-700 hover:text-lts-blue transition-colors">
               About Brett
             </a>
-            <a href="#products" className="text-lts-gray hover:text-lts-blue transition-colors">
+            <a href="#products" className="text-gray-700 hover:text-lts-blue transition-colors">
               Products
             </a>
-            <a href="#services" className="text-lts-gray hover:text-lts-blue transition-colors">
+            <a href="#services" className="text-gray-700 hover:text-lts-blue transition-colors">
               Services
             </a>
-            <a href="#contact" className="text-lts-gray hover:text-lts-blue transition-colors">
+            <a href="#contact" className="text-gray-700 hover:text-lts-blue transition-colors">
               Contact
             </a>
           </nav>
@@ -46,16 +46,16 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden pb-4">
             <nav className="flex flex-col space-y-2">
-              <a href="#about" className="text-lts-gray hover:text-lts-blue transition-colors py-2">
+              <a href="#about" className="text-gray-700 hover:text-lts-blue transition-colors py-2">
                 About Brett
               </a>
-              <a href="#products" className="text-lts-gray hover:text-lts-blue transition-colors py-2">
+              <a href="#products" className="text-gray-700 hover:text-lts-blue transition-colors py-2">
                 Products
               </a>
-              <a href="#services" className="text-lts-gray hover:text-lts-blue transition-colors py-2">
+              <a href="#services" className="text-gray-700 hover:text-lts-blue transition-colors py-2">
                 Services
               </a>
-              <a href="#contact" className="text-lts-gray hover:text-lts-blue transition-colors py-2">
+              <a href="#contact" className="text-gray-700 hover:text-lts-blue transition-colors py-2">
                 Contact
               </a>
             </nav>

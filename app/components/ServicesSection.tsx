@@ -35,7 +35,7 @@ export default function ServicesSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-lts-dark mb-4">
             Professional Services
           </h2>
-          <p className="text-xl text-lts-gray max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive consulting and training services to accelerate your lean transformation 
             journey and build internal capabilities for sustained success.
           </p>
@@ -48,10 +48,10 @@ export default function ServicesSection() {
                 <div className="text-4xl">{service.icon}</div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-lts-dark mb-3">{service.title}</h3>
-                  <p className="text-lts-gray mb-4">{service.description}</p>
+                  <p className="text-gray-700 mb-4">{service.description}</p>
                   <div className="grid grid-cols-2 gap-2">
                     {service.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-lts-gray">
+                      <div key={idx} className="flex items-center text-sm text-gray-600">
                         <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                         {benefit}
                       </div>
@@ -80,7 +80,7 @@ export default function ServicesSection() {
 
           <div className="bg-white rounded-lg shadow-md p-8">
             <h3 className="text-2xl font-bold text-lts-dark mb-4">Why Choose LTS?</h3>
-            <ul className="space-y-3 text-lts-gray">
+            <ul className="space-y-3 text-gray-700">
               <li className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
