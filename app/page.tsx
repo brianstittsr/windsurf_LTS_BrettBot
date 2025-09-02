@@ -7,6 +7,7 @@ import ProductsSection from './components/ProductsSection'
 import ServicesSection from './components/ServicesSection'
 import AboutSection from './components/AboutSection'
 import Footer from './components/Footer'
+import N8nEmbeddedChat from './components/N8nEmbeddedChat'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ProductsSection />
       <ServicesSection />
       <Footer />
+      <N8nEmbeddedChat />
     </main>
   )
 }
