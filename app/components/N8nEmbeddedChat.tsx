@@ -102,6 +102,61 @@ export default function N8nEmbeddedChat() {
 
     document.head.appendChild(script)
 
+    // Add CSS to hide n8n branding
+    const style = document.createElement('style')
+    style.innerHTML = `
+      /* Hide n8n branding text */
+      [class*="n8n"], [class*="chatui"], [href*="n8nchatui.com"], 
+      a[href*="n8nchatui.com"], div:contains("n8nchatui.com"),
+      div:contains("Free customizable chat widget"),
+      *[title*="n8nchatui"], *[alt*="n8nchatui"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+      }
+      
+      /* Hide any text containing n8n branding */
+      *:contains("Free customizable chat widget for n8n") {
+        display: none !important;
+      }
+      
+      *:contains("n8nchatui.com") {
+        display: none !important;
+      }
+    `
+    document.head.appendChild(style)
+
+    // Additional script to remove branding after widget loads
+    setTimeout(() => {
+      // Remove any elements containing the branding text
+      const brandingElements = document.querySelectorAll('*')
+      brandingElements.forEach(el => {
+        if (el.textContent && (
+          el.textContent.includes('Free customizable chat widget for n8n') ||
+          el.textContent.includes('n8nchatui.com')
+        )) {
+          const htmlEl = el as HTMLElement
+          htmlEl.style.display = 'none'
+          el.remove()
+        }
+      })
+      
+      // Also check for links and specific elements
+      const links = document.querySelectorAll('a[href*="n8nchatui.com"]')
+      links.forEach(link => link.remove())
+      
+      // Remove any divs with branding text
+      const divs = document.querySelectorAll('div')
+      divs.forEach(div => {
+        if (div.textContent && div.textContent.includes('Free customizable chat widget')) {
+          div.remove()
+        }
+      })
+    }, 2000)
+
     // Cleanup function
     return () => {
       const scriptToRemove = document.querySelector('script[type="module"][defer]')
