@@ -128,21 +128,56 @@ export default function N8nEmbeddedChat() {
 
   const getFallbackResponse = (userInput: string): string => {
     const input = userInput.toLowerCase()
+    const messageCount = messages.length
     
-    // Provide relevant responses based on user input while n8n is being fixed
-    if (input.includes('manufacturing') || input.includes('production')) {
-      return "I'm Brett from LTS Solutions. While our system is being updated, I'd love to help with your manufacturing challenges. What type of manufacturing do you do and what's your biggest operational challenge right now?"
-    } else if (input.includes('lean') || input.includes('efficiency')) {
-      return "Great question about lean manufacturing! Our LTS solutions like TITAN, Janus, and Q-Point can help optimize your operations. What specific efficiency improvements are you looking to explore?"
-    } else if (input.includes('quality') || input.includes('defect')) {
-      return "Quality is crucial in manufacturing. Our Q-Point system helps with real-time quality monitoring. What quality challenges are you currently facing in your facility?"
-    } else if (input.includes('productivity') || input.includes('oee')) {
-      return "Productivity tracking is essential! Our TITAN system provides comprehensive manufacturing analytics. How do you currently measure productivity and what's your target OEE?"
-    } else if (input.includes('system') || input.includes('software')) {
-      return "Many manufacturers struggle with multiple disconnected systems. Our TITAN platform consolidates data from various sources. How many different systems are you currently using to run your operations?"
-    } else {
-      return "I'm Brett, your LTS manufacturing expert. Our chat system is being updated, but I'm here to help identify the best lean solutions for your facility. What type of manufacturing challenges can I help you explore?"
+    // Add variety based on conversation length to avoid repetition
+    const responses = {
+      manufacturing: [
+        "I'm Brett from LTS Solutions. What type of manufacturing do you do and what's your biggest operational challenge right now?",
+        "Tell me more about your manufacturing environment. What industry are you in and what challenges are you facing?",
+        "I'd like to understand your facility better. How many employees work in production and what's your main bottleneck?"
+      ],
+      lean: [
+        "Great question about lean manufacturing! What specific efficiency improvements are you looking to explore?",
+        "Lean principles can transform operations. What's your current experience with lean methodologies?",
+        "Which area of your operation would benefit most from lean improvements - productivity, quality, or cost reduction?"
+      ],
+      quality: [
+        "Quality is crucial in manufacturing. What quality challenges are you currently facing in your facility?",
+        "Tell me about your current quality control processes. What's your defect rate?",
+        "How do you currently track and measure quality in your operations?"
+      ],
+      productivity: [
+        "How do you currently measure productivity and what's your target OEE?",
+        "What's causing your biggest productivity bottlenecks right now?",
+        "Tell me about your current production tracking systems and metrics."
+      ],
+      systems: [
+        "How many different systems are you currently using to run your operations?",
+        "Are you using Excel spreadsheets to track production data?",
+        "What challenges do you face when trying to get a complete picture of your operations?"
+      ]
     }
+    
+    // Select response based on input and add variety
+    let responseArray: string[] = []
+    if (input.includes('manufacturing') || input.includes('production')) {
+      responseArray = responses.manufacturing
+    } else if (input.includes('lean') || input.includes('efficiency')) {
+      responseArray = responses.lean
+    } else if (input.includes('quality') || input.includes('defect')) {
+      responseArray = responses.quality
+    } else if (input.includes('productivity') || input.includes('oee')) {
+      responseArray = responses.productivity
+    } else if (input.includes('system') || input.includes('software')) {
+      responseArray = responses.systems
+    } else {
+      return "I'm here to help with your manufacturing challenges. What specific area would you like to explore - productivity, quality, lean processes, or system integration?"
+    }
+    
+    // Use message count to vary responses and avoid repetition
+    const responseIndex = messageCount % responseArray.length
+    return responseArray[responseIndex]
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
