@@ -62,26 +62,86 @@ export default function N8nEmbeddedChat() {
         })
       })
 
+      if (!response.ok) {
+        // Handle specific HTTP errors
+        if (response.status === 500) {
+          throw new Error('N8N workflow error - please check your workflow configuration')
+        } else if (response.status === 404) {
+          throw new Error('N8N webhook not found - please verify your webhook URL')
+        } else if (response.status === 403) {
+          throw new Error('Access denied - please check your webhook permissions')
+        } else {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+        }
+      }
+
       const data = await response.json()
       
+      // Handle different possible response formats from n8n
+      let responseText = ''
+      if (typeof data === 'string') {
+        responseText = data
+      } else if (data.response) {
+        responseText = data.response
+      } else if (data.message) {
+        responseText = data.message
+      } else if (data.output) {
+        responseText = data.output
+      } else if (data.text) {
+        responseText = data.text
+      } else if (data.reply) {
+        responseText = data.reply
+      } else if (Array.isArray(data) && data.length > 0) {
+        // Handle array responses
+        const firstItem = data[0]
+        responseText = firstItem.response || firstItem.message || firstItem.output || firstItem.text || JSON.stringify(firstItem)
+      } else {
+        // Fallback: stringify the entire response
+        responseText = JSON.stringify(data)
+      }
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.response || data.message || 'Sorry, I encountered an error. Please try again.',
+        text: responseText || 'I received your message but had trouble generating a response. Please try again.',
         isUser: false,
         timestamp: new Date()
       }
 
       setMessages(prev => [...prev, botMessage])
     } catch (error) {
+      console.error('Chat API Error:', error)
+      
+      // Provide a helpful fallback response while n8n workflow is being fixed
+      const fallbackResponse = getFallbackResponse(inputText)
+      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: 'Sorry, I encountered an error connecting to the service. Please try again.',
+        text: fallbackResponse,
         isUser: false,
         timestamp: new Date()
       }
       setMessages(prev => [...prev, errorMessage])
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const getFallbackResponse = (userInput: string): string => {
+    const input = userInput.toLowerCase()
+    
+    // Provide relevant responses based on user input while n8n is being fixed
+    if (input.includes('manufacturing') || input.includes('production')) {
+      return "I'm Brett from LTS Solutions. While our system is being updated, I'd love to help with your manufacturing challenges. What type of manufacturing do you do and what's your biggest operational challenge right now?"
+    } else if (input.includes('lean') || input.includes('efficiency')) {
+      return "Great question about lean manufacturing! Our LTS solutions like TITAN, Janus, and Q-Point can help optimize your operations. What specific efficiency improvements are you looking to explore?"
+    } else if (input.includes('quality') || input.includes('defect')) {
+      return "Quality is crucial in manufacturing. Our Q-Point system helps with real-time quality monitoring. What quality challenges are you currently facing in your facility?"
+    } else if (input.includes('productivity') || input.includes('oee')) {
+      return "Productivity tracking is essential! Our TITAN system provides comprehensive manufacturing analytics. How do you currently measure productivity and what's your target OEE?"
+    } else if (input.includes('system') || input.includes('software')) {
+      return "Many manufacturers struggle with multiple disconnected systems. Our TITAN platform consolidates data from various sources. How many different systems are you currently using to run your operations?"
+    } else {
+      return "I'm Brett, your LTS manufacturing expert. Our chat system is being updated, but I'm here to help identify the best lean solutions for your facility. What type of manufacturing challenges can I help you explore?"
     }
   }
 
