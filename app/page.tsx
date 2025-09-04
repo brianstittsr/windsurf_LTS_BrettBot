@@ -64,6 +64,8 @@ export default function Home() {
     chatContainer.innerHTML = chatHTML
     document.body.appendChild(chatContainer)
     
+    console.log('Chat widget added to DOM')
+    
     // Add chat functionality
     const chatButton = document.getElementById('chat-button')
     const chatWindow = document.getElementById('chat-window')
@@ -132,11 +134,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-      <AboutSection />
       <Header />
       <Hero />
       <ProductsSection />
       <ServicesSection />
+      <AboutSection />
       <Footer />
     </main>
   )
