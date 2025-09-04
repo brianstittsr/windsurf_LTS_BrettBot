@@ -89,7 +89,7 @@ export default function Home() {
       chatMessages?.appendChild(userMsg)
       
       try {
-        const response = await fetch('https://n8n.mynewpie.com/webhook/53c136fe-3e77-4709-a143-fe82746dd8b6/chat', {
+        const response = await fetch('http://localhost:5678/webhook/a889d2ae-2159-402f-b326-5f61e90f602e/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message, timestamp: new Date().toISOString(), source: 'web_chat' })
