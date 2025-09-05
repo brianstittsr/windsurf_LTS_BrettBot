@@ -93,7 +93,11 @@ export default function Home() {
       try {
         const response = await fetch('https://n8n.mynewpie.com/webhook/a889d2ae-2159-402f-b326-5f61e90f602e/chat?t=' + Date.now(), {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json'
+          },
+          mode: 'cors',
+          credentials: 'omit',
           body: JSON.stringify({ message, timestamp: new Date().toISOString(), source: 'web_chat' })
         })
         
